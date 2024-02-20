@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Yukbor</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+   <link rel="stylesheet" href="assets/style.css">
+   <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@remix-run/router@1.13.1/dist/router.umd.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/react-router@6.20.1/dist/umd/react-router.production.min.js"></script>
+   <script
+      src="https://cdn.jsdelivr.net/npm/react-router-dom@6.20.1/dist/umd/react-router-dom.production.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.23.5/babel.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/libphonenumber-js/1.10.56/libphonenumber-js.min.js" integrity="sha512-oeQ8BZCQHe5fj6d1Kiw8VdBC0tu+6RMJVRPWwsO1/7LM4KR2kO45IH0ADF1Jpw3W5Jxv2RWEs9TwYIPN+yTp3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+   <div id="root"></div>
+   <script src="assets/country-list.js"></script>
+   <script src="assets/utils.js"></script>
+   
+   <script type="text/babel" src="components/Header.jsx"></script>
+   <script type="text/babel" src="components/Logo.jsx"></script>
+   <script type="text/babel" src="components/ArrowLeft.jsx"></script>
+   <script type="text/babel" src="components/Picker.jsx"></script>
+   <script type="text/babel" src="components/DirectionPicker.jsx"></script>
+   <script type="text/babel" src="components/Spinner.jsx"></script>
+
+
+   <script type="text/babel" src="screens/Home.jsx"></script>
+   <script type="text/babel" src="screens/Success.jsx"></script>
+
+   <script type="text/babel" data-presets="env,react">
+      const { createBrowserRouter, RouterProvider, Route, Link } = window.ReactRouterDOM;
+      const { useRoutes, useNavigate, useLocation } = window.ReactRouter;
+
+      const router = createBrowserRouter([
+         { path: '/', element: <Home /> },
+         { path: '/success', element: <Success /> },
+      ]);
+
+      ReactDOM.render(<RouterProvider router={router} />, document.getElementById('root'));
+   </script>
+</body>
+
+</html>

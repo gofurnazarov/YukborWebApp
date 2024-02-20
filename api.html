@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Api</title>
+</head>
+
+<body>
+   <div id="root"></div>
+   <script src="assets/utils.js"></script>
+   <script>
+      const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkzM2NiMGEwLWJlNDgtNDhhYi1hNGVmLTM0ZDA5ZWZlMmE1MyIsImlhdCI6MTcwODQxOTczMCwiZXhwIjoxODY2MDk5NzMwfQ.eMxwcDMZ2hwevfPwnGMpJGlI9yAM0d2a6q0k-eu7iNk";
+
+      async function run() {
+         let payload = { phone_number: '998997549723' };
+   
+         const response = await request.post('/user/send_otp', payload)
+         const data = await response.json();
+         console.log(data)
+      }
+
+      // run()
+
+      async function getLoads() {
+         let payload = {
+            id: null,
+            updated_at: null, 
+            filters: JSON.stringify({
+               location: `<region><uz>Andijon viloyati</uz><oz>Андижон вилояти</oz><ru>Андижанская область</ru></region>`,
+               destination: `<region><uz>Qoraqalpog'iston Respublikasi</uz><oz>Қорақалпоғистон Республикаси</oz><ru>Республика Каракалпакстан</ru></region>`,
+               truckType: 'any',
+               truckBodyType: 'any',
+               minWeight: '0',
+               maxWeight: '100',
+            }) 
+         }
+
+         const response = await request.get('/ad', payload, token)
+         const data = await response.json();
+         console.log(data)
+      }
+
+      getLoads()
+   </script>
+</body>
+
+</html>
